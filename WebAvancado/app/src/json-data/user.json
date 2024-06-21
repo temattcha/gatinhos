@@ -1,0 +1,30 @@
+[
+    {
+    "id": "38987d73-054f-4236-937c-3c105a09a9f9",
+    "name": "Mat",
+    "username": "admin",
+    "password": "admin",
+    "cpf": "123.123.123-45",
+    "birthday": "01/01/1900",
+    "isActive": true,
+    "phones": [
+    {
+    "id": "4a654028-93d1-4e70-a4d2-da3fe29dcdae",
+    "number": "123",
+    "phoneType": 1,
+    "userId": "38987d73-054f-4236-937c-3c105a09a9f9",
+    "user": null
+    }
+    ]
+    },
+    {
+    "id": "97adb5dd-260b-4172-92d0-ca8727da6a27",
+    "name": "Mat",
+    "username": "321",
+    "password": "321321",
+    "cpf": "123",
+    "birthday": "1010",
+    "isActive": true,
+    "phones": []
+    }
+    ]
