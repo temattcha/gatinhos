@@ -1,4 +1,4 @@
-import { KittyCatModel } from './models/kittyCat';
+import { KittyCatModel } from './models/KittyCat';
 import express, { Express, Request, Response } from "express"
 import dotenv from "dotenv"
 import cors from "cors"
