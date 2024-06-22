@@ -3,7 +3,7 @@ import express, { Express, Request, Response } from "express"
 import dotenv from "dotenv"
 import cors from "cors"
 
-import icecreamRoutes from "./routes/icecreamRoutes"
+import userRoutes from "./routes/userRoutes"
 import kittyCatRoutes from "./routes/kittyCatRoutes"
 
 import swaggerUi from "swagger-ui-express"
@@ -35,7 +35,7 @@ app.use(
   })
 )
 
-app.use("/api/icecream", icecreamRoutes)
+app.use("/api/user", userRoutes)
 app.use("/api/kittyCat", kittyCatRoutes)
 
 app.get("/", (req: Request, res: Response) => {
