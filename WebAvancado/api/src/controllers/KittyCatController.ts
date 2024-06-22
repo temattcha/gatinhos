@@ -1,5 +1,5 @@
 import { Body, Post, Route } from "tsoa"
-import { KittyCatModel } from "../models/kittyCat"
+import { KittyCatModel } from "../models/KittyCat"
 import { JsonObject } from "swagger-ui-express"
 
 @Route("api/kittyCat")
