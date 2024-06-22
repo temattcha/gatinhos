@@ -1,31 +1,27 @@
 import { Body, Get, Patch, Delete, Post, Route } from "tsoa"
-import { KittyCatModel } from "../models/KittyCat"
+import { UserModel } from "../models/User"
 import { JsonObject } from "swagger-ui-express"
 
-@Route("api/kittyCat")
-export default class KittyCatController {
+@Route("api/user")
+export default class UserController {
   @Post("/create")
-  public async create(@Body() body: { name: string, color: string, age: number, weight: number, isFelv: boolean, species: string }): Promise<JsonObject> {
-    const data = new KittyCatModel({
+  public async create(@Body() body: { name: string }): Promise<string> {
+    const data = new UserModel({
       name: body.name,
-      color: body.color,
-      age: body.age,
-      weight: body.weight,
-      isFelv: body.isFelv,
-      species: body.species
     })
 
     try {
-      return data.save()
+      await data.save()
+      return "OK"
     } catch (error) {
-      return { error }
+      return JSON.stringify(error)
     }
   }
 
   @Get("/getAll")
   public async all(): Promise<JsonObject> {
     try {
-      const data = await KittyCatModel.find()
+      const data = await UserModel.find()
       return data
     } catch (error: any) {
       return {
@@ -37,7 +33,7 @@ export default class KittyCatController {
   @Patch("/update")
   public async update(@Body() body: { id: string; name: string }): Promise<JsonObject> {
     try {
-      const result = await KittyCatModel.findByIdAndUpdate(body.id, { name: body.name })
+      const result = await UserModel.findByIdAndUpdate(body.id, { name: body.name })
 
       return { result: result }
     } catch (error: any) {
@@ -50,7 +46,7 @@ export default class KittyCatController {
   @Delete("/delete/:id")
   public async delete(id: string): Promise<JsonObject> {
     try {
-      const data = await KittyCatModel.findByIdAndDelete(id)
+      const data = await UserModel.findByIdAndDelete(id)
       return { data: data }
     } catch (error: any) {
       return {
