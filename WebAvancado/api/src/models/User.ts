@@ -5,9 +5,14 @@ const userSchema = new mongoose.Schema({
     required: true,
     type: String,
   },
-  kittyCatId: {
-    type: mongoose.Schema.Types.ObjectId, ref: "KittyCat"
-  }
+  email: {
+    required: true,
+    type: String,
+  },
+  password: {
+    required: true,
+    type: String,
+  },
 })
 
 export const UserModel = mongoose.model("User", userSchema)

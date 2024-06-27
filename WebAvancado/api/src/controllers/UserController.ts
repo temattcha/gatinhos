@@ -5,9 +5,11 @@ import { JsonObject } from "swagger-ui-express"
 @Route("api/user")
 export default class UserController {
   @Post("/create")
-  public async create(@Body() body: { name: string }): Promise<string> {
+  public async create(@Body() body: { name: string; email: string; password: string }): Promise<string> {
     const data = new UserModel({
       name: body.name,
+      email: body.email,
+      password: body.password,
     })
 
     try {

@@ -39,8 +39,8 @@ export default function ContaPage() {
     <section className='animeLeft'>
       <h1 className='title'>Minha Conta</h1>
       <form className={styles.form}>
-        <Input label="Usuário" name="username" type="text" />
-        <Input label="Senha" name="password" type="password" />
+        <Input label="Usuário" id="name" name="name" type="text" />
+        <Input label="Senha" id="password" name="password" type="password" />
         <ErrorMessage error={state.error} />
         <FormButton />
 

@@ -5,7 +5,7 @@ import { JsonObject } from "swagger-ui-express"
 @Route("api/kittyCat")
 export default class KittyCatController {
   @Post("/create")
-  public async create(@Body() body: { name: string, color: string, age: number, weight: number, isFelv: boolean, species: string }): Promise<JsonObject> {
+  public async createCat(@Body() body: { name: string, color: string, age: number, weight: number, isFelv: boolean, species: string }): Promise<JsonObject> {
     const data = new KittyCatModel({
       name: body.name,
       color: body.color,
@@ -23,7 +23,7 @@ export default class KittyCatController {
   }
 
   @Get("/getAll")
-  public async all(): Promise<JsonObject> {
+  public async allCat(): Promise<JsonObject> {
     try {
       const data = await KittyCatModel.find()
       return data
@@ -35,7 +35,7 @@ export default class KittyCatController {
   }
 
   @Patch("/update")
-  public async update(@Body() body: { id: string; name: string }): Promise<JsonObject> {
+  public async updateCat(@Body() body: { id: string; name: string }): Promise<JsonObject> {
     try {
       const result = await KittyCatModel.findByIdAndUpdate(body.id, { name: body.name })
 
@@ -48,7 +48,7 @@ export default class KittyCatController {
   }
 
   @Delete("/delete/:id")
-  public async delete(id: string): Promise<JsonObject> {
+  public async deleteCat(id: string): Promise<JsonObject> {
     try {
       const data = await KittyCatModel.findByIdAndDelete(id)
       return { data: data }
